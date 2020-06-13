@@ -1,7 +1,7 @@
-function createNew(event) {
+document.getElementById("submit-btn").onclick = (event) => {
     let form = document.getElementById("create");
     let sticky = document.createElement("DIV");
-    sticky.classList.add("sticky");
+    sticky.classList.add("note");
     
     let title = document.createElement("H3");
     title.innerHTML = form.elements[0].value;
@@ -12,8 +12,26 @@ function createNew(event) {
     sticky.appendChild(date);
     
     document.getElementById("stickies").appendChild(sticky);
+    form.elements[0].value = "";
+    form.elements[1].value = "";
     event.preventDefault();
-}
+};
+
+document.getElementById("view-form").onclick = () => {
+    let form = document.getElementById("create");
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    } else {
+        form.style.display = "block";
+    }
+
+    let formContainer = document.getElementById("form-container");
+    if (!formContainer.style.backgroundImage) {
+        formContainer.style.backgroundImage = 'url("./stick.png")';
+    } else {
+        formContainer.style.backgroundImage = "";
+    }
+};
 
 var draggableStickies = document.getElementsByClassName("note");
 for (var i = 0; i < draggableStickies.length; i++) {
@@ -53,5 +71,3 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-
-document.getElementById("submit-btn").onclick = createNew;
