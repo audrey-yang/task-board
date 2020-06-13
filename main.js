@@ -64,11 +64,22 @@ document.getElementById("submit-image-btn").onclick = () => {
     let form = document.getElementById("create-image");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
+    sticky.classList.add("img-note");
 
     let image = document.createElement("IMG");
     image.src = URL.createObjectURL(form.elements[0].files[0]);
 
+    let button = document.createElement("BUTTON");
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
+
     sticky.appendChild(image);
+    sticky.appendChild(button);
+
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
 

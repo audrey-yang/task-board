@@ -3,6 +3,35 @@
     <head>
         <title>Task Board</title>
         <link href="style.css" rel="stylesheet">
+        <script type="module">
+            import interact from 'https://cdn.interactjs.io/v1.9.19/interactjs/index.js'
+
+            interact('.img-note')
+            .resizable({
+                edges: { left: false, right: true, bottom: true, top: false },
+                listeners: {
+                    move (event) {
+                        var target = event.target
+                        var x = (parseFloat(target.getAttribute('data-x')) || 0)
+                        var y = (parseFloat(target.getAttribute('data-y')) || 0)
+
+                        // update the element's style
+                        target.style.width = event.rect.width + 'px'
+                        target.style.height = event.rect.height + 'px'
+
+                        target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px,' + y + 'px)'
+
+                        target.setAttribute('data-x', x)
+                        target.setAttribute('data-y', y)
+                    }
+                },
+                modifiers: [
+                interact.modifiers.restrictSize({
+                    min: { width: 200, height: 200 }
+                })
+                ]
+            })
+        </script>
         <script src="./main.js" defer></script>
     </head>
     <body>
@@ -99,9 +128,7 @@
             </form>
         </div>
         
-        <div id="stickies">
-            
-        </div>
+        <div id="stickies"></div>
     </body>
     
 </html>

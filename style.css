@@ -59,15 +59,6 @@ input[type=radio], input.radio {
     width: 2rem;
 }
 
-.close-btn {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-
 /* Notes */
 .note {
     position: absolute;
@@ -89,10 +80,34 @@ input[type=radio], input.radio {
     word-break: keep-all;
 }
 
+.close-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
 .draggableheader {
     padding: 10px;
     cursor: move;
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
+}
+
+.img-note {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+img {
+    display: block;
+    max-height: 95%;
+    max-width: 95%;
+    padding: 5px;
+    resize: both;
 }
