@@ -1,6 +1,11 @@
-html {
+body {
     background-image: url("board.jpg");
     font-family: Helvetica, sans-serif;
+}
+
+/* Background change */
+#background-change-container {
+    float: right;
 }
 
 /* Input form */
@@ -73,6 +78,14 @@ input[type=radio], input.radio {
     width: 200px;
     height: 200px;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 8px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.note p {
+    display: block;
+    max-width: 90%;
+    padding: 1rem;
+    word-wrap: normal;
+    word-break: keep-all;
 }
 
 .draggableheader {

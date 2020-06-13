@@ -38,7 +38,6 @@ document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
-
     let text = document.createElement("P");
     text.innerHTML = form.elements[0].value;
     let button = document.createElement("BUTTON");
@@ -88,21 +87,23 @@ const makeDraggable = () => {
  
 const getSetColor = (sticky, name) => {
     //Sets the color to which ever radio button is checked
-    let color;
+    let color, ind;
     let btns = document.getElementsByName(name);
     for(let i = 0;i < btns.length;i++) {
         if (btns[i].checked) {
             color = btns[i].value;
+            ind = i;
         }
     }
 
     sticky.style.backgroundColor = color;
     sticky.style.backgroundImage = "linear-gradient(to bottom right, " + color + ", white)";
 
-    //Unchecks all radio buttons
-    for(let i = 0; i < btns.length; i++) {
+    //Unchecks all radio buttons except for current
+    for(let i = 1; i < btns.length; i++) {
       btns[i].checked = false;
     }
+    btns[ind].checked = true;
 }
 
 /* View Form */
@@ -191,3 +192,13 @@ function dragElement(elmnt) {
     }
   }
 
+document.getElementById("background-change-btn").onclick = () => {
+    let btn = document.getElementById("background-change-btn");
+    if (btn.innerHTML === "Poster") {
+        document.body.style.background = "none";
+        btn.innerHTML = "Corkboard";
+    } else {
+        document.body.style.backgroundImage = "url(board.jpg)";
+        btn.innerHTML = "Poster";
+    }
+}
