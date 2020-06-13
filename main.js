@@ -9,13 +9,22 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     title.innerHTML = form.elements[0].value;
     let date = document.createElement("P");
     date.innerHTML = form.elements[1].value;
+    let button = document.createElement("BUTTON");
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
     
     sticky.appendChild(title);
     sticky.appendChild(date);
+    sticky.appendChild(button);
     
     getSetColor(sticky, "color");
     
     document.getElementById("stickies").appendChild(sticky);
+    
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     form.elements[0].value = "";
     form.elements[1].value = "";
         
@@ -23,17 +32,28 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     makeDraggable();
 };
 
+
 document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
     let text = document.createElement("P");
-    sticky.appendChild(text);
     text.innerHTML = form.elements[0].value;
-    
+    let button = document.createElement("BUTTON");
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
+
+    sticky.appendChild(text);
+    sticky.appendChild(button);
     
     getSetColor(sticky, "note-color");
+
     document.getElementById("stickies").appendChild(sticky);
+
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     form.elements[0].value = "";
 
     event.preventDefault();
@@ -88,6 +108,14 @@ document.getElementById("view-task-form-btn").onclick = () => {
     let formContainer = document.getElementById("task-form-container");
     viewForm(form , formContainer);
 };
+
+//function close(elmnt){
+//    elmnt.remove();
+//}
+
+function thisprints(){
+    console.log("i print");
+}
 
 document.getElementById("view-note-form-btn").onclick = () => {
   let form = document.getElementById("create-note");   
