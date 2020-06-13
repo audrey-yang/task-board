@@ -1,5 +1,7 @@
 document.getElementById("submit-btn").onclick = (event) => {
     let form = document.getElementById("create");
+    
+    //Creates new div item representing the sticky note
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
     
@@ -10,18 +12,31 @@ document.getElementById("submit-btn").onclick = (event) => {
     
     sticky.appendChild(title);
     sticky.appendChild(date);
-
-    alert(form.elements[2].value);
     
-    sticky.style.backgroundColor = form.elements[2].value;
-    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + form.elements[2].value + ", white)";
-    console.log(form.elements[3].value);
+    //Sets the color to which ever radio button is checked
+    let color;
+    let btns = document.getElementsByName("color");
+    for(let i = 0;i < btns.length;i++) {
+        if (btns[i].checked) {
+            color = btns[i].value;
+        }
+    }
+
+    sticky.style.backgroundColor = color;
+    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + color + ", white)";
+    
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
     form.elements[1].value = "";
-    form.elements[2].value = "aliceblue";
+
+    //Unchecks all radio buttons
+    for(let i = 0; i < btns.length; i++) {
+      btns[i].checked = false;
+    }
+        
     event.preventDefault();
 
+    //Makes all sticky notes draggable
     var draggableStickies = document.getElementsByClassName("note");
     for (var i = 0; i < draggableStickies.length; i++) {
         dragElement(draggableStickies[i]);
