@@ -9,6 +9,7 @@ html {
     width: 17%;
     padding: 1.5rem;
     margin: 0;
+    z-index: 3;
 }
 
 form {
@@ -20,14 +21,13 @@ input {
     width: 90%;
 }
 
-#form-container button {
-  background-color: hotpink;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 100%;
-  border: solid deeppink 1px;
+#view-form-btn {
+    background-color: deeppink;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    border: solid pink 1px;
 }
-
 .note {
     background-image: url("stick.png");
     display: flex;

@@ -17,8 +17,10 @@ document.getElementById("submit-btn").onclick = (event) => {
     event.preventDefault();
 };
 
-document.getElementById("view-form").onclick = () => {
-    let form = document.getElementById("create");
+document.getElementById("view-form-btn").onclick = () => {
+    let btn = document.getElementById("view-form-btn");
+    let form = document.getElementById("create");   
+    
     if (form.style.display === "block") {
         form.style.display = "none";
     } else {
