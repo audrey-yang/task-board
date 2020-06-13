@@ -16,6 +16,9 @@ document.getElementById("submit-btn").onclick = (event) => {
     form.elements[1].value = "";
     event.preventDefault();
 
+    sticky.style.backgroundColor = "color";
+    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + sticky.style.backgroundColor + ", white)";
+
     var draggableStickies = document.getElementsByClassName("note");
     for (var i = 0; i < draggableStickies.length; i++) {
         dragElement(draggableStickies[i]);
