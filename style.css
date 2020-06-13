@@ -29,6 +29,8 @@ input {
     border: solid pink 1px;
 }
 .note {
+    position: absolute;
+    z-index: 9;
     background-image: url("stick.png");
     display: flex;
     flex-direction: column;
