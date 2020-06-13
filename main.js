@@ -27,6 +27,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
 
     form.elements[0].value = "";
     form.elements[1].value = "";
+    document.getElementById("red").checked = true;
         
     event.preventDefault();
     makeDraggable();
@@ -56,6 +57,7 @@ document.getElementById("submit-note-btn").onclick = () => {
     };
 
     form.elements[0].value = "";
+    document.getElementById("red").checked = true;
 
     event.preventDefault();
     makeDraggable();
