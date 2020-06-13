@@ -8,7 +8,8 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     let title = document.createElement("H3");
     title.innerHTML = form.elements[0].value;
     let date = document.createElement("P");
-    date.innerHTML = form.elements[1].value;
+    var d = new Date(form.elements[1].value);
+    date.innerHTML = formatDate(d);
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";
@@ -113,10 +114,6 @@ document.getElementById("view-task-form-btn").onclick = () => {
     viewForm(form , formContainer);
 };
 
-//function close(elmnt){
-//    elmnt.remove();
-//}
-
 function thisprints(){
     console.log("i print");
 }
@@ -192,6 +189,7 @@ function dragElement(elmnt) {
     }
   }
 
+//toggle bg image between poster and corkboard
 document.getElementById("background-change-btn").onclick = () => {
     let btn = document.getElementById("background-change-btn");
     if (btn.innerHTML === "Poster") {
@@ -201,4 +199,82 @@ document.getElementById("background-change-btn").onclick = () => {
         document.body.style.backgroundImage = "url(board.jpg)";
         btn.innerHTML = "Poster";
     }
+}
+
+//formatting date
+function formatDate(d){
+  var day;
+  switch (d.getDay()) {
+    case 0:
+      day = "Sun";
+      break;
+    case 1:
+      day = "Mon";
+      break;
+    case 2:
+      day = "Tue";
+      break;
+    case 3:
+      day = "Wed";
+      break;
+    case 4:
+      day = "Thu";
+      break;
+    case 5:
+      day = "Fri";
+      break;
+    case 6:
+      day = "Sat";
+      break;
+  }
+
+  var month;
+  switch (d.getMonth()) {
+    case 0:
+      month = "Jan";
+      break;
+    case 1:
+      month = "Feb";
+      break;
+    case 2:
+      month = "Mar";
+      break;
+    case 3:
+      month = "Apr";
+      break;
+    case 4:
+      month = "May";
+      break;
+    case 5:
+      month = "Jun";
+      break;
+    case 6:
+      month = "Jul";
+      break;
+    case 7:
+      month = "Aug";
+      break;
+    case 8:
+      month = "Sep";
+      break;
+    case 9:
+      month = "Oct";
+      break;
+    case 10:
+      month = "Nov";
+      break;
+    case 11:
+      month = "Dec";
+      break;
+  }
+
+  var min;
+  if(d.getMinutes() < 10){
+    min = "0" + d.getMinutes();
+  } else {
+    min = d.getMinutes();
+  }
+
+  var dateString = day + " " + d.getDate() + "-" + month + "-" + d.getFullYear() + " " + d.getHours() + ":" + min;
+  return dateString;
 }
