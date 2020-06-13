@@ -10,7 +10,8 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     let date = document.createElement("P");
     date.innerHTML = form.elements[1].value;
     let button = document.createElement("BUTTON");
-    button.innerHTML = "aaa";
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
     
     sticky.appendChild(title);
     sticky.appendChild(date);
@@ -19,12 +20,18 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     getSetColor(sticky, "color");
     
     document.getElementById("stickies").appendChild(sticky);
+    
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     form.elements[0].value = "";
     form.elements[1].value = "";
         
     event.preventDefault();
     makeDraggable();
 };
+
 
 document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
@@ -33,10 +40,21 @@ document.getElementById("submit-note-btn").onclick = () => {
 
     let text = document.createElement("P");
     text.innerHTML = form.elements[0].value;
+    let button = document.createElement("BUTTON");
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
+
     sticky.appendChild(text);
+    sticky.appendChild(button);
     
     getSetColor(sticky, "note-color");
+
     document.getElementById("stickies").appendChild(sticky);
+
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     form.elements[0].value = "";
 
     event.preventDefault();

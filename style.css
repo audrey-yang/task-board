@@ -53,6 +53,15 @@ input[type=radio], input.radio {
     width: 2rem;
 }
 
+.close-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
 /* Notes */
 .note {
     position: absolute;
