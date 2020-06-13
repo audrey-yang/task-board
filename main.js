@@ -8,8 +8,11 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     let title = document.createElement("H3");
     title.innerHTML = form.elements[0].value;
     let date = document.createElement("P");
-    var d = new Date(form.elements[1].value);
-    date.innerHTML = formatDate(d);
+    if (form.elements[1].value != ""){
+      var d = new Date(form.elements[1].value);
+      date.innerHTML = formatDate(d);
+    };
+    
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";

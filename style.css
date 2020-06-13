@@ -80,6 +80,13 @@ input[type=radio], input.radio {
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 8px 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.note h3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
 .note p {
     display: block;
     max-width: 90%;
