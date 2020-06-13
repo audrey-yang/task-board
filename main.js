@@ -27,10 +27,10 @@ document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
-
     let text = document.createElement("P");
-    text.innerHTML = form.elements[0].value;
     sticky.appendChild(text);
+    text.innerHTML = form.elements[0].value;
+    
     
     getSetColor(sticky, "note-color");
     document.getElementById("stickies").appendChild(sticky);
@@ -160,3 +160,13 @@ function dragElement(elmnt) {
     }
   }
 
+document.getElementById("background-change-btn").onclick = () => {
+    let btn = document.getElementById("background-change-btn");
+    if (btn.innerHTML === "Poster") {
+        document.body.style.background = "none";
+        btn.innerHTML = "Corkboard";
+    } else {
+        document.body.style.backgroundImage = "url(board.jpg)";
+        btn.innerHTML = "Poster";
+    }
+}

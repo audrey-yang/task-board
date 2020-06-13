@@ -1,104 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Task Board</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="./main.js" defer></script>
-</head>
-<body>
-    <div id="task-form-container" class="form-container">
-        <button type="button" id="view-task-form-btn" class="view-btn"></button>
-        <form id="create-task" method="post">
-            <h3>Task:</h3>
-            <input type="text" for="title">
-            <br><br>
-            <h3>Need done by:</h3>
-            <input type="datetime-local" for="date">
-            <br><br>
+    <head>
+        <title>Task Board</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="./main.js" defer></script>
+    </head>
+    <body>
+        <div id="background-change-container">
+            <button type="button" id="background-change-btn">Poster</button>
+        </div>
+        <div id="task-form-container" class="form-container">
+            <button type="button" id="view-task-form-btn" class="view-btn"></button>
+            <form id="create-task" method="post">
+                <h3>Task:</h3>
+                <input type="text" for="title">
+                <br><br>
+                <h3>Need done by:</h3>
+                <input type="datetime-local" for="date">
+                <br><br>
 
-            <h3>Color:</h3>
-            <div class="color-choices">
-                <div class="color-choice">
-                    <input type="radio" id="red" name="color" value="pink">
-                    <label for="pink" style="color: pink;">Pink</label>
+                <h3>Color:</h3>
+                <div class="color-choices">
+                    <div class="color-choice">
+                        <input type="radio" id="red" name="color" value="pink">
+                        <label for="pink" style="color: pink;">Pink</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="orange" name="color" value="navajowhite">
+                        <label for="orange" style="color: navajowhite;">Orange</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="yellow" name="color" value="lightgoldenrodyellow">
+                        <label for="yellow" style="color: lightgoldenrodyellow;">Yellow</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="green" name="color" value="palegreen">
+                        <label for="green" style="color: palegreen;">Green</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="blue" name="color" value="lightblue">
+                        <label for="blue" style="color: lightblue;">Blue</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="purple" name="color" value="lavender">
+                        <label for="purple" style="color: lavender;">Purple</label>
+                    </div>
                 </div>
-                <div class="color-choice">
-                    <input type="radio" id="orange" name="color" value="navajowhite">
-                    <label for="orange" style="color: navajowhite;">Orange</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="yellow" name="color" value="lightgoldenrodyellow">
-                    <label for="yellow" style="color: lightgoldenrodyellow;">Yellow</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="green" name="color" value="palegreen">
-                    <label for="green" style="color: palegreen;">Green</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="blue" name="color" value="lightblue">
-                    <label for="blue" style="color: lightblue;">Blue</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="purple" name="color" value="lavender">
-                    <label for="purple" style="color: lavender;">Purple</label>
-                </div>
-            </div>
-            
-            <br><br>
-            <input type="submit" id="submit-task-btn">
-        </form>
-    </div>
-    <div id="note-form-container" class="form-container">
-        <button type="button" id="view-note-form-btn" class="view-btn"></button>
-        <form id="create-note" method="post">
-            <h3>Make a note</h3>
-            <textarea id="note-text" name="note-text" rows="7"></textarea>
-            <br><br>
+                
+                <br><br>
+                <input type="submit" id="submit-task-btn">
+            </form>
+        </div>
+        <div id="note-form-container" class="form-container">
+            <button type="button" id="view-note-form-btn" class="view-btn"></button>
+            <form id="create-note" method="post">
+                <h3>Make a note</h3>
+                <textarea id="note-text" name="note-text" rows="7"></textarea>
+                <br><br>
 
-            <h3>Color:</h3>
-            <div class="color-choices">
-                <div class="color-choice">
-                    <input type="radio" id="red" name="note-color" value="pink">
-                    <label for="pink" style="color: pink;">Pink</label>
+                <h3>Color:</h3>
+                <div class="color-choices">
+                    <div class="color-choice">
+                        <input type="radio" id="red" name="note-color" value="pink">
+                        <label for="pink" style="color: pink;">Pink</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="orange" name="note-color" value="navajowhite">
+                        <label for="orange" style="color: navajowhite;">Orange</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="yellow" name="note-color" value="lightgoldenrodyellow">
+                        <label for="yellow" style="color: lightgoldenrodyellow;">Yellow</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="green" name="note-color" value="palegreen">
+                        <label for="green" style="color: palegreen;">Green</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="blue" name="note-color" value="lightblue">
+                        <label for="blue" style="color: lightblue;">Blue</label>
+                    </div>
+                    <div class="color-choice">
+                        <input type="radio" id="purple" name="note-color" value="lavender">
+                        <label for="purple" style="color: lavender;">Purple</label>
+                    </div>
                 </div>
-                <div class="color-choice">
-                    <input type="radio" id="orange" name="note-color" value="navajowhite">
-                    <label for="orange" style="color: navajowhite;">Orange</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="yellow" name="note-color" value="lightgoldenrodyellow">
-                    <label for="yellow" style="color: lightgoldenrodyellow;">Yellow</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="green" name="note-color" value="palegreen">
-                    <label for="green" style="color: palegreen;">Green</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="blue" name="note-color" value="lightblue">
-                    <label for="blue" style="color: lightblue;">Blue</label>
-                </div>
-                <div class="color-choice">
-                    <input type="radio" id="purple" name="note-color" value="lavender">
-                    <label for="purple" style="color: lavender;">Purple</label>
-                </div>
-            </div>
-            <br><br>
-            <input type="submit" id="submit-note-btn">   
-        </form>
-    </div>
-    <div id="image-form-container" class="form-container">
-        <button type="button" id="view-image-form-btn" class="view-btn"></button>
-        <form id="create-image" name="img" accept="image/*" method="post">
-            <h3>Upload an image</h3>
-            <input type="file">
-            <br><br>
-            <input type="submit" id="submit-image-btn">   
-        </form>
-    </div>
-    
-    <div id="stickies">
+                <br><br>
+                <input type="submit" id="submit-note-btn">   
+            </form>
+        </div>
+        <div id="image-form-container" class="form-container">
+            <button type="button" id="view-image-form-btn" class="view-btn"></button>
+            <form id="create-image" name="img" accept="image/*" method="post">
+                <h3>Upload an image</h3>
+                <input type="file">
+                <br><br>
+                <input type="submit" id="submit-image-btn">   
+            </form>
+        </div>
         
-    </div>
-</body>
+        <div id="stickies">
+            
+        </div>
+    </body>
     
 </html>
