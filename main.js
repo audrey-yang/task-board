@@ -10,14 +10,17 @@ document.getElementById("submit-btn").onclick = (event) => {
     
     sticky.appendChild(title);
     sticky.appendChild(date);
+
+    alert(form.elements[2].value);
     
+    sticky.style.backgroundColor = form.elements[2].value;
+    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + form.elements[2].value + ", white)";
+    console.log(form.elements[3].value);
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
     form.elements[1].value = "";
+    form.elements[2].value = "aliceblue";
     event.preventDefault();
-
-    sticky.style.backgroundColor = "color";
-    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + sticky.style.backgroundColor + ", white)";
 
     var draggableStickies = document.getElementsByClassName("note");
     for (var i = 0; i < draggableStickies.length; i++) {
