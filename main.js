@@ -33,10 +33,13 @@ document.getElementById("view-form-btn").onclick = () => {
     }
 
     let formContainer = document.getElementById("form-container");
-    if (!formContainer.style.backgroundImage) {
-        formContainer.style.backgroundImage = 'url("./stick.png")';
+    
+    if (!formContainer.style.backgroundColor) {
+        formContainer.style.backgroundColor = "floralwhite";
+        formContainer.style.border = "solid 1px wheat";
     } else {
-        formContainer.style.backgroundImage = "";
+        formContainer.style.backgroundColor = "";
+        formContainer.style.border = "none";
     }
 };
 
@@ -82,4 +85,3 @@ function dragElement(elmnt) {
     }
   }
 
-document.getElementById("submit-btn").onclick = createNew;

@@ -3,6 +3,7 @@ html {
     font-family: Helvetica, sans-serif;
 }
 
+/* Input form */
 #form-container {
     display: flex;
     flex-direction: column;
@@ -13,8 +14,8 @@ html {
 }
 
 form {
-    padding-left: 3rem;
     display: none;
+    padding-left: 3rem;
 }
 
 input {
@@ -28,6 +29,31 @@ input {
     border-radius: 100%;
     border: solid pink 1px;
 }
+
+.color-choices {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px darkslategray;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input[type=radio], input.radio {
+    float: left;
+    clear: none;
+    margin: 0;
+    padding: 0;
+    width: 2rem;
+}
+
+/* Notes */
 .note {
     position: absolute;
     z-index: 9;
