@@ -4,7 +4,7 @@ html {
 }
 
 /* Input form */
-#form-container {
+.form-container {
     display: flex;
     flex-direction: column;
     width: 17%;
@@ -18,11 +18,11 @@ form {
     padding-left: 3rem;
 }
 
-input {
+input, textarea {
     width: 90%;
 }
 
-#view-form-btn {
+.view-btn {
     background-color: deeppink;
     width: 1.5rem;
     height: 1.5rem;
