@@ -21,6 +21,7 @@ body {
 form {
     display: none;
     padding-left: 3rem;
+    z-index: 4;
 }
 
 input, textarea {

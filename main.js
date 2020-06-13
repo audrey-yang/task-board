@@ -60,14 +60,15 @@ document.getElementById("submit-note-btn").onclick = () => {
     makeDraggable();
 }
 
-/* NEED TO FIX – IMAGE UPLOAD DOES NOT WORK*/
 document.getElementById("submit-image-btn").onclick = () => {
     let form = document.getElementById("create-image");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
 
-    sticky.style.backgroundImage = "url(form.elements[0].value)";
-    alert(form.elements[0].value);
+    let image = document.createElement("IMG");
+    image.src = URL.createObjectURL(form.elements[0].files[0]);
+
+    sticky.appendChild(image);
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
 
@@ -188,7 +189,7 @@ function dragElement(elmnt) {
       document.onmouseup = null;
       document.onmousemove = null;
     }
-  }
+}
 
 document.getElementById("background-change-btn").onclick = () => {
     let btn = document.getElementById("background-change-btn");
