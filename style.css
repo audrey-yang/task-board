@@ -3,7 +3,8 @@ html {
     font-family: Helvetica, sans-serif;
 }
 
-#form-container {
+/* Input form */
+.form-container {
     display: flex;
     flex-direction: column;
     width: 17%;
@@ -13,21 +14,46 @@ html {
 }
 
 form {
-    padding-left: 3rem;
     display: none;
+    padding-left: 3rem;
 }
 
-input {
+input, textarea {
     width: 90%;
 }
 
-#view-form-btn {
+.view-btn {
     background-color: deeppink;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 100%;
     border: solid pink 1px;
 }
+
+.color-choices {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px darkslategray;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+input[type=radio], input.radio {
+    float: left;
+    clear: none;
+    margin: 0;
+    padding: 0;
+    width: 2rem;
+}
+
+/* Notes */
 .note {
     position: absolute;
     z-index: 9;

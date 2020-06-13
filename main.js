@@ -1,5 +1,7 @@
-document.getElementById("submit-btn").onclick = (event) => {
-    let form = document.getElementById("create");
+document.getElementById("submit-task-btn").onclick = (event) => {
+    let form = document.getElementById("create-task");
+    
+    //Creates new div item representing the sticky note
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
     
@@ -14,36 +16,80 @@ document.getElementById("submit-btn").onclick = (event) => {
     sticky.appendChild(date);
     sticky.appendChild(button);
     
+    getSetColor(sticky, "color");
+    
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
     form.elements[1].value = "";
+        
     event.preventDefault();
+    makeDraggable();
+};
 
-    sticky.style.backgroundColor = "lightgoldenrodyellow";
-    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + sticky.style.backgroundColor + ", white)";
+document.getElementById("submit-note-btn").onclick = () => {
+    let form = document.getElementById("create-note");
+    let sticky = document.createElement("DIV");
+    sticky.classList.add("note");
 
+    let text = document.createElement("P");
+    text.innerHTML = form.elements[0].value;
+    sticky.appendChild(text);
+    
+    getSetColor(sticky, "note-color");
+    document.getElementById("stickies").appendChild(sticky);
+    form.elements[0].value = "";
+
+    event.preventDefault();
+    makeDraggable();
+}
+
+/* NEED TO FIX – IMAGE UPLOAD DOES NOT WORK*/
+document.getElementById("submit-image-btn").onclick = () => {
+    let form = document.getElementById("create-image");
+    let sticky = document.createElement("DIV");
+    sticky.classList.add("note");
+
+    sticky.style.backgroundImage = "url(form.elements[0].value)";
+    alert(form.elements[0].value);
+    document.getElementById("stickies").appendChild(sticky);
+    form.elements[0].value = "";
+
+    event.preventDefault();
+    makeDraggable();
+}
+
+const makeDraggable = () => {
+    //Makes all sticky notes draggable
     var draggableStickies = document.getElementsByClassName("note");
     for (var i = 0; i < draggableStickies.length; i++) {
         dragElement(draggableStickies[i]);
     }
-};
-
-document.getElementById("view-form-btn").onclick = () => {
-    let btn = document.getElementById("view-form-btn");
-    let form = document.getElementById("create");   
-    
-    if (form.style.display === "block") {
-        form.style.display = "none";
-    } else {
-        form.style.display = "block";
+}
+ 
+const getSetColor = (sticky, name) => {
+    //Sets the color to which ever radio button is checked
+    let color;
+    let btns = document.getElementsByName(name);
+    for(let i = 0;i < btns.length;i++) {
+        if (btns[i].checked) {
+            color = btns[i].value;
+        }
     }
 
-    let formContainer = document.getElementById("form-container");
-    if (!formContainer.style.backgroundImage) {
-        formContainer.style.backgroundImage = 'url("./stick.png")';
-    } else {
-        formContainer.style.backgroundImage = "";
+    sticky.style.backgroundColor = color;
+    sticky.style.backgroundImage = "linear-gradient(to bottom right, " + color + ", white)";
+
+    //Unchecks all radio buttons
+    for(let i = 0; i < btns.length; i++) {
+      btns[i].checked = false;
     }
+}
+
+/* View Form */
+document.getElementById("view-task-form-btn").onclick = () => {
+    let form = document.getElementById("create-task");   
+    let formContainer = document.getElementById("task-form-container");
+    viewForm(form , formContainer);
 };
 
 //function close(elmnt){
@@ -54,6 +100,35 @@ function thisprints(){
     console.log("i print");
 }
 
+document.getElementById("view-note-form-btn").onclick = () => {
+  let form = document.getElementById("create-note");   
+  let formContainer = document.getElementById("note-form-container");
+  viewForm(form , formContainer);
+};
+
+document.getElementById("view-image-form-btn").onclick = () => {
+  let form = document.getElementById("create-image");   
+  let formContainer = document.getElementById("image-form-container");
+  viewForm(form , formContainer);
+};
+
+const viewForm = (form, formContainer) => {
+  if (form.style.display === "block") {
+      form.style.display = "none";
+  } else {
+      form.style.display = "block";
+  }
+
+  if (!formContainer.style.backgroundColor) {
+      formContainer.style.backgroundColor = "floralwhite";
+      formContainer.style.border = "solid 1px wheat";
+  } else {
+      formContainer.style.backgroundColor = "";
+      formContainer.style.border = "none";
+  }
+}
+
+/* Dragging notes */
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById(elmnt.id + "header")) {
@@ -96,4 +171,3 @@ function dragElement(elmnt) {
     }
   }
 
-document.getElementById("submit-btn").onclick = createNew;
