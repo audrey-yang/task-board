@@ -7,16 +7,19 @@ document.getElementById("submit-btn").onclick = (event) => {
     title.innerHTML = form.elements[0].value;
     let date = document.createElement("P");
     date.innerHTML = form.elements[1].value;
+    let button = document.createElement("BUTTON");
+    button.innerHTML = "aaa";
     
     sticky.appendChild(title);
     sticky.appendChild(date);
+    sticky.appendChild(button);
     
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
     form.elements[1].value = "";
     event.preventDefault();
 
-    sticky.style.backgroundColor = "color";
+    sticky.style.backgroundColor = "lightgoldenrodyellow";
     sticky.style.backgroundImage = "linear-gradient(to bottom right, " + sticky.style.backgroundColor + ", white)";
 
     var draggableStickies = document.getElementsByClassName("note");
@@ -42,6 +45,14 @@ document.getElementById("view-form-btn").onclick = () => {
         formContainer.style.backgroundImage = "";
     }
 };
+
+//function close(elmnt){
+//    elmnt.remove();
+//}
+
+function thisprints(){
+    console.log("i print");
+}
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
