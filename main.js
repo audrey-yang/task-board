@@ -12,7 +12,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
       var d = new Date(form.elements[1].value);
       date.innerHTML = formatDate(d);
     };
-    
+
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";
@@ -26,7 +26,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     document.getElementById("stickies").appendChild(sticky);
     
     button.onclick = function() {
-        stickies.removeChild(sticky);
+      stickies.removeChild(sticky);
     };
 
     form.elements[0].value = "";
