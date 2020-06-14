@@ -50,10 +50,6 @@ document.getElementById("submit-task-btn").onclick = (event) => {
       stickies.removeChild(sticky);
     };
 
-    if (form.elements[4].value) {
-        sendEmail(form.elements[4].value, form.elements[0].value, form.elements[2].value, date.innerHTML);
-    }
-
     form.elements[0].value = "";
     form.elements[1].value = "";
     form.elements[2].value = "";
@@ -63,6 +59,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     dragElement(sticky, sticky);
 };
 
+/* Unused */
 const sendEmail = (recipient, title, body, date) => {
     Email.send({
         Host: "smtp.gmail.com",
