@@ -90,29 +90,33 @@ input[type=radio], input.radio {
     margin: 0 auto;
     width: 200px;
     height: 200px;
-    max-height: 200px;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 8px 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .note h3 {
     margin: 0;
     padding: 2.5rem 1rem 0.5rem;
+    white-space: pre-wrap;
     word-wrap: normal;
     word-break: keep-all;
 }
 
 .note h5 {
+    font-size: 1.1rem;
     margin: 0;
     padding: 0.5rem 1rem;
     font-weight: normal;
+    white-space: pre-wrap;
     word-wrap: normal;
     word-break: break-all;
 }
 
 .note p {
+    font-size: 0.9rem;
     margin: 0;
     display: block;
     max-width: 90%;
+    white-space: pre-wrap;
     padding: 1rem;
     word-wrap: normal;
     word-break: keep-all;
@@ -126,6 +130,8 @@ input[type=radio], input.radio {
     top: 5px;
     right: 5px;
     z-index: 13;
+    padding: 2.5px;
+    margin: 0;
 }
 
 .pin-btn {
@@ -149,6 +155,10 @@ input[type=radio], input.radio {
 }
 
 .img-note {
+    touch-action: none;
+    user-select: none;
+    box-sizing: border-box;
+    resize: both;
     background-color: aliceblue;
     display: flex;
     flex-direction: row;
@@ -159,7 +169,8 @@ img {
     display: block;
     max-height: 95%;
     max-width: 95%;
-    padding: 5px;
+    padding: 10px;
     resize: both;
+    flex-shrink: 2;
     z-index: 11;
 }

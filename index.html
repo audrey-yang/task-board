@@ -3,34 +3,35 @@
     <head>
         <title>Task Board</title>
         <link href="style.css" rel="stylesheet">
-        <script type="module">
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script type="module" defer>
             import interact from 'https://cdn.interactjs.io/v1.9.19/interactjs/index.js'
 
             interact('.img-note')
-            .resizable({
-                edges: { left: false, right: true, bottom: true, top: false },
-                listeners: {
-                    move (event) {
-                        var target = event.target
-                        var x = (parseFloat(target.getAttribute('data-x')) || 0)
-                        var y = (parseFloat(target.getAttribute('data-y')) || 0)
+                .resizable({
+                    edges: { 
+                        right: true, bottom: true,
+                    },
+                    restrictSize: {
+                        min: { width: 200, height: 100 }
+                    },
+                    preserveAspectRatio: true
+                }).on('resizemove', (event) => {
+                    let target = event.target,
+                        x = (parseFloat(target.getAttribute('data-x')) || 0),
+                        y = (parseFloat(target.getAttribute('data-y')) || 0);
+                
+                    let child = target.querySelector('img');
+                    let ratio = parseFloat(child.height) / parseFloat(child.width),
+                        newWidth = event.rect.width,
+                        newHeight = event.rect.width * ratio;
+                    target.style.width  = newWidth + 'px';
+                    target.style.height = newHeight + 'px';
 
-                        // update the element's style
-                        target.style.width = event.rect.width + 'px'
-                        target.style.height = event.rect.height + 'px'
-
-                        target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px,' + y + 'px)'
-
-                        target.setAttribute('data-x', x)
-                        target.setAttribute('data-y', y)
-                    }
-                },
-                modifiers: [
-                interact.modifiers.restrictSize({
-                    min: { width: 200, height: 200 }
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
                 })
-                ]
-            })
+
         </script>
         <script src="./main.js" defer></script>
     </head>
@@ -78,6 +79,8 @@
                         <label for="purple" style="color: lavender;">Purple</label>
                     </div>
                 </div>
+                <h3>Enter your email address below for a reminder.</h3>
+                <input type="text">
                 <br><br>
                 <input type="submit" id="submit-task-btn">
             </form>
