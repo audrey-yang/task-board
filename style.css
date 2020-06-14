@@ -118,6 +118,7 @@ input[type=radio], input.radio {
     max-width: 90%;
     white-space: pre-wrap;
     padding: 1rem;
+    padding-left: 2.5rem;
     word-wrap: normal;
     word-break: keep-all;
 }
