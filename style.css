@@ -97,22 +97,27 @@ input[type=radio], input.radio {
     margin: 0;
     padding: 1rem 1rem;
     padding-bottom: 0.5rem;
+    white-space: pre-wrap;
     word-wrap: normal;
     word-break: keep-all;
 }
 
 .note h5 {
+    font-size: 1.1rem;
     margin: 0;
     padding: 0.5rem 1rem;
     font-weight: normal;
+    white-space: pre-wrap;
     word-wrap: normal;
     word-break: break-all;
 }
 
 .note p {
+    font-size: 0.9rem;
     margin: 0;
     display: block;
     max-width: 90%;
+    white-space: pre-wrap;
     padding: 1rem;
     word-wrap: normal;
     word-break: keep-all;

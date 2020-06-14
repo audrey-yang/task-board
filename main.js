@@ -1,5 +1,6 @@
 let dt = new Date();
-document.getElementById("date").innerHTML = `Today's Date:<br> ${formatDate(dt)}`;
+document.getElementById("date").innerHTML = 
+    `Today: ${formatDate(dt).substring(0, formatDate(dt).length - 5)}`;
   
 document.getElementById("view-date-btn").onclick = () => {
     let btn = document.getElementById("view-date-btn");
@@ -11,7 +12,6 @@ document.getElementById("view-date-btn").onclick = () => {
       date.style.display = "block";
     }
 
-    //makeDraggable();
     dragElement(document.getElementById("date-container"), document.getElementById("date-container"));
 }
 
@@ -30,7 +30,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     let date = document.createElement("P");
     if (form.elements[2].value != ""){
       var d = new Date(form.elements[2].value);
-      date.innerHTML = "Do by: " + formatDate(d);
+      date.innerHTML = "By " + formatDate(d);
     };
 
     let button = document.createElement("BUTTON");
@@ -56,7 +56,6 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     document.getElementById("red").checked = true;
         
     event.preventDefault();
-    //makeDraggable();
     dragElement(sticky, sticky);
 };
 
@@ -85,7 +84,6 @@ document.getElementById("submit-note-btn").onclick = () => {
     document.getElementById("red").checked = true;
 
     event.preventDefault();
-    //makeDraggable();
     dragElement(sticky, sticky);
 }
 
