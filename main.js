@@ -64,9 +64,6 @@ document.getElementById("submit-task-btn").onclick = (event) => {
         pin.style.backgroundColor = "transparent";
         }
     };
-    if (form.elements[4].value) {
-        sendEmail(form.elements[4].value, form.elements[0].value, form.elements[2].value, date.innerHTML);
-    }
 
     form.elements[0].value = "";
     form.elements[1].value = "";
@@ -77,7 +74,8 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     dragElement(sticky, sticky);
 };
 
-/*
+
+/* Unused */
 const sendEmail = (recipient, title, body, date) => {
     Email.send({
         Host: "smtp.gmail.com",
@@ -91,7 +89,6 @@ const sendEmail = (recipient, title, body, date) => {
         message => alert("Mail sent successfully")
     );
 }
-*/
 
 document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
