@@ -1,3 +1,19 @@
+let dt = new Date();
+document.getElementById("date").innerHTML = `Today's Date:<br> ${formatDate(dt)}`;
+  
+document.getElementById("view-date-btn").onclick = () => {
+    let btn = document.getElementById("view-date-btn");
+    let date = document.getElementById("date-container");
+    btn.classList.toggle("active");
+    if (date.style.display === "block") {
+        date.style.display = "none";
+    } else {
+      date.style.display = "block";
+    }
+
+    makeDraggable();
+}
+
 document.getElementById("submit-task-btn").onclick = (event) => {
     let form = document.getElementById("create-task");
     
@@ -7,10 +23,13 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     
     let title = document.createElement("H3");
     title.innerHTML = form.elements[0].value;
+    
+    let descrip = document.createElement("H5");
+    descrip.innerHTML = form.elements[1].value;
     let date = document.createElement("P");
-    if (form.elements[1].value != ""){
-      var d = new Date(form.elements[1].value);
-      date.innerHTML = formatDate(d);
+    if (form.elements[2].value != ""){
+      var d = new Date(form.elements[2].value);
+      date.innerHTML = "Do by: " + formatDate(d);
     };
 
     let button = document.createElement("BUTTON");
@@ -18,6 +37,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     button.innerHTML = "x";
     
     sticky.appendChild(title);
+    sticky.appendChild(descrip);
     sticky.appendChild(date);
     sticky.appendChild(button);
     
@@ -31,12 +51,12 @@ document.getElementById("submit-task-btn").onclick = (event) => {
 
     form.elements[0].value = "";
     form.elements[1].value = "";
+    form.elements[2].value = "";
     document.getElementById("red").checked = true;
         
     event.preventDefault();
     makeDraggable();
 };
-
 
 document.getElementById("submit-note-btn").onclick = () => {
     let form = document.getElementById("create-note");
@@ -66,14 +86,26 @@ document.getElementById("submit-note-btn").onclick = () => {
     makeDraggable();
 }
 
-/* NEED TO FIX – IMAGE UPLOAD DOES NOT WORK*/
 document.getElementById("submit-image-btn").onclick = () => {
     let form = document.getElementById("create-image");
     let sticky = document.createElement("DIV");
     sticky.classList.add("note");
+    sticky.classList.add("img-note");
 
-    sticky.style.backgroundImage = "url(form.elements[0].value)";
-    alert(form.elements[0].value);
+    let image = document.createElement("IMG");
+    image.src = URL.createObjectURL(form.elements[0].files[0]);
+
+    let button = document.createElement("BUTTON");
+    button.classList.add("close-btn");
+    button.innerHTML = "x";
+
+    sticky.appendChild(image);
+    sticky.appendChild(button);
+
+    button.onclick = function() {
+        stickies.removeChild(sticky);
+    };
+
     document.getElementById("stickies").appendChild(sticky);
     form.elements[0].value = "";
 
@@ -112,6 +144,7 @@ const getSetColor = (sticky, name) => {
 
 /* View Form */
 document.getElementById("view-task-form-btn").onclick = () => {
+    document.getElementById("view-task-form-btn").classList.toggle("active");
     let form = document.getElementById("create-task");   
     let formContainer = document.getElementById("task-form-container");
     viewForm(form , formContainer);
@@ -122,15 +155,17 @@ function thisprints(){
 }
 
 document.getElementById("view-note-form-btn").onclick = () => {
-  let form = document.getElementById("create-note");   
-  let formContainer = document.getElementById("note-form-container");
-  viewForm(form , formContainer);
+    document.getElementById("view-note-form-btn").classList.toggle("active");
+    let form = document.getElementById("create-note");   
+    let formContainer = document.getElementById("note-form-container");
+    viewForm(form , formContainer);
 };
 
 document.getElementById("view-image-form-btn").onclick = () => {
-  let form = document.getElementById("create-image");   
-  let formContainer = document.getElementById("image-form-container");
-  viewForm(form , formContainer);
+    document.getElementById("view-image-form-btn").classList.toggle("active");
+    let form = document.getElementById("create-image");   
+    let formContainer = document.getElementById("image-form-container");
+    viewForm(form , formContainer);
 };
 
 const viewForm = (form, formContainer) => {
@@ -190,17 +225,17 @@ function dragElement(elmnt) {
       document.onmouseup = null;
       document.onmousemove = null;
     }
-  }
+}
 
 //toggle bg image between poster and corkboard
 document.getElementById("background-change-btn").onclick = () => {
     let btn = document.getElementById("background-change-btn");
-    if (btn.innerHTML === "Poster") {
+    if (btn.innerHTML === "Posterboard") {
         document.body.style.background = "none";
         btn.innerHTML = "Corkboard";
     } else {
         document.body.style.backgroundImage = "url(board.jpg)";
-        btn.innerHTML = "Poster";
+        btn.innerHTML = "Posterboard";
     }
 }
 
@@ -278,6 +313,6 @@ function formatDate(d){
     min = d.getMinutes();
   }
 
-  var dateString = day + " " + d.getDate() + "-" + month + "-" + d.getFullYear() + " " + d.getHours() + ":" + min;
+  var dateString = `${day}, ${month} ${d.getDate()} ${d.getHours()}:${min}`
   return dateString;
 }

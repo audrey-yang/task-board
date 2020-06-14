@@ -4,8 +4,24 @@ body {
 }
 
 /* Background change */
-#background-change-container {
+.right {
     float: right;
+}
+
+.right-btn {
+    background-color: floralwhite;
+    border: solid 1px black;
+    border-radius: 25%;
+    padding: 0.4rem 0.7rem;
+    font-size: 1.1rem;
+    color: black(58, 58, 58);
+    margin: 1rem;
+}
+
+#date-container {
+    display: none;
+    height: auto;
+    background-color: lightblue;
 }
 
 /* Input form */
@@ -21,6 +37,7 @@ body {
 form {
     display: none;
     padding-left: 3rem;
+    z-index: 4;
 }
 
 input, textarea {
@@ -33,6 +50,11 @@ input, textarea {
     height: 1.5rem;
     border-radius: 100%;
     border: solid pink 1px;
+}
+
+.view-btn:hover, .active {
+    background-color: skyblue;
+    border: solid lightblue 1px;
 }
 
 .color-choices {
@@ -58,6 +80,44 @@ input[type=radio], input.radio {
     width: 2rem;
 }
 
+/* Notes */
+.note {
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    max-height: 200px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 8px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.note h3 {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.note h5 {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-weight: normal;
+    word-wrap: normal;
+    word-break: break-all;
+}
+
+.note p {
+    margin: 0;
+    display: block;
+    max-width: 90%;
+    padding: 1rem;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
 .close-btn {
     background-color: transparent;
     outline: none;
@@ -67,38 +127,25 @@ input[type=radio], input.radio {
     right: 5px;
 }
 
-/* Notes */
-.note {
-    position: absolute;
-    z-index: 9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 8px 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.note h3 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    word-wrap: normal;
-    word-break: keep-all;
-}
-
-.note p {
-    display: block;
-    max-width: 90%;
-    padding: 1rem;
-    word-wrap: normal;
-    word-break: keep-all;
-}
-
 .draggableheader {
     padding: 10px;
     cursor: move;
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
+}
+
+.img-note {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+img {
+    display: block;
+    max-height: 95%;
+    max-width: 95%;
+    padding: 5px;
+    resize: both;
 }
