@@ -36,11 +36,16 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";
+
+    let pin = document.createElement("BUTTON");
+    pin.classList.add("pin-btn");
+    pin.style.backgroundColor = "transparent";
     
     sticky.appendChild(title);
     sticky.appendChild(descrip);
     sticky.appendChild(date);
     sticky.appendChild(button);
+    sticky.appendChild(pin);
     
     getSetColor(sticky, "color");
     
@@ -48,6 +53,16 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     
     button.onclick = function() {
       stickies.removeChild(sticky);
+    };
+
+    pin.onclick = function() {
+      if(pin.style.backgroundColor === "transparent") {
+        sticky.onmousedown = null;
+        pin.style.backgroundColor = "ghostwhite";
+        } else {
+        dragElement(sticky, sticky);
+        pin.style.backgroundColor = "transparent";
+        }
     };
 
     form.elements[0].value = "";
@@ -69,9 +84,13 @@ document.getElementById("submit-note-btn").onclick = () => {
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";
+    let pin = document.createElement("BUTTON");
+    pin.classList.add("pin-btn");
+    pin.style.backgroundColor = "transparent";
 
     sticky.appendChild(text);
     sticky.appendChild(button);
+    sticky.appendChild(pin);
     
     getSetColor(sticky, "note-color");
 
@@ -79,6 +98,16 @@ document.getElementById("submit-note-btn").onclick = () => {
 
     button.onclick = function() {
         stickies.removeChild(sticky);
+    };
+
+    pin.onclick = function() {
+      if(pin.style.backgroundColor === "transparent") {
+        sticky.onmousedown = null;
+        pin.style.backgroundColor = "ghostwhite";
+        } else {
+        dragElement(sticky, sticky);
+        pin.style.backgroundColor = "transparent";
+        }
     };
 
     form.elements[0].value = "";
@@ -102,11 +131,26 @@ document.getElementById("submit-image-btn").onclick = () => {
     button.classList.add("close-btn");
     button.innerHTML = "x";
 
+    let pin = document.createElement("BUTTON");
+    pin.classList.add("pin-btn");
+    pin.style.backgroundColor = "transparent";
+
     sticky.appendChild(image);
     sticky.appendChild(button);
+    sticky.appendChild(pin);
 
     button.onclick = function() {
         stickies.removeChild(sticky);
+    };
+
+    pin.onclick = function() {
+      if(pin.style.backgroundColor === "transparent") {
+        image.onmousedown = null;
+        pin.style.backgroundColor = "ghostwhite";
+        } else {
+        dragElement(sticky, image);
+        pin.style.backgroundColor = "transparent";
+        }
     };
 
     document.getElementById("stickies").appendChild(sticky);
