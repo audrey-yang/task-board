@@ -11,7 +11,8 @@ document.getElementById("view-date-btn").onclick = () => {
       date.style.display = "block";
     }
 
-    makeDraggable();
+    //makeDraggable();
+    dragElement(document.getElementById("date-container"), document.getElementById("date-container"));
 }
 
 document.getElementById("submit-task-btn").onclick = (event) => {
@@ -31,7 +32,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
       var d = new Date(form.elements[2].value);
       date.innerHTML = "Do by: " + formatDate(d);
     };
-    
+
     let button = document.createElement("BUTTON");
     button.classList.add("close-btn");
     button.innerHTML = "x";
@@ -46,7 +47,7 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     document.getElementById("stickies").appendChild(sticky);
     
     button.onclick = function() {
-        stickies.removeChild(sticky);
+      stickies.removeChild(sticky);
     };
 
     form.elements[0].value = "";
@@ -55,7 +56,8 @@ document.getElementById("submit-task-btn").onclick = (event) => {
     document.getElementById("red").checked = true;
         
     event.preventDefault();
-    makeDraggable();
+    //makeDraggable();
+    dragElement(sticky, sticky);
 };
 
 document.getElementById("submit-note-btn").onclick = () => {
@@ -83,7 +85,8 @@ document.getElementById("submit-note-btn").onclick = () => {
     document.getElementById("red").checked = true;
 
     event.preventDefault();
-    makeDraggable();
+    //makeDraggable();
+    dragElement(sticky, sticky);
 }
 
 document.getElementById("submit-image-btn").onclick = () => {
@@ -110,9 +113,10 @@ document.getElementById("submit-image-btn").onclick = () => {
     form.elements[0].value = "";
 
     event.preventDefault();
-    makeDraggable();
+    dragElement(sticky, image);
 }
 
+/*Currently unused but may become useful again*/
 const makeDraggable = () => {
     //Makes all sticky notes draggable
     var draggableStickies = document.getElementsByClassName("note");
@@ -185,16 +189,10 @@ const viewForm = (form, formContainer) => {
 }
 
 /* Dragging notes */
-function dragElement(elmnt) {
+function dragElement(elmnt, dragby) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "header")) {
-      /* if present, the header is where you move the DIV from:*/
-      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-    } else {
-      /* otherwise, move the DIV from anywhere inside the DIV:*/
-      elmnt.onmousedown = dragMouseDown;
-      console.log("this happened");
-    }
+    /*move the DIV from anywhere inside the DIV:*/
+    dragby.onmousedown = dragMouseDown;
   
     function dragMouseDown(e) {
       e = e || window.event;

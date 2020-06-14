@@ -155,4 +155,5 @@ img {
     padding: 10px;
     resize: both;
     flex-shrink: 2;
+    z-index: 11;
 }
