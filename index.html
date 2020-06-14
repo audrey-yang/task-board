@@ -35,19 +35,22 @@
         <script src="./main.js" defer></script>
     </head>
     <body>
-        <div id="background-change-container">
-            <button type="button" id="background-change-btn">Poster</button>
+        <div id="background-change-container" class="right">
+            <button type="button" id="background-change-btn" class="right-btn">Posterboard</button>
         </div>
+
         <div id="task-form-container" class="form-container">
             <button type="button" id="view-task-form-btn" class="view-btn"></button>
             <form id="create-task" method="post">
                 <h3>Task:</h3>
                 <input type="text" for="title">
                 <br><br>
-                <h3>Need done by:</h3>
+                <h3>Description:</h3>
+                <textarea name="description-text" rows="7"></textarea>
+                <br><br>
+                <h3>Do by:</h3>
                 <input type="datetime-local" for="date">
                 <br><br>
-
                 <h3>Color:</h3>
                 <div class="color-choices">
                     <div class="color-choice">
@@ -127,7 +130,13 @@
                 <input type="submit" id="submit-image-btn">   
             </form>
         </div>
-        
+
+        <div id="view-date-container" class="form-container">
+            <button type="button" id="view-date-btn" class="view-btn"></button>
+            <div id="date-container" class="note">
+                <h3 id="date"></h3>
+            </div>
+        </div>
         <div id="stickies"></div>
     </body>
     
