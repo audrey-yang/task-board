@@ -1,6 +1,8 @@
 # Productivity Sticky Space
 For Same Home Different Hacks Hackathon – Happy at Home Hack
-Built by [Lucy Wang](github.com/gujiguj) and [Audrey Yang](github.com/audrey-yang)
+
+Built by [Lucy Wang](https://github.com/gujiguj) and [Audrey Yang](https://github.com/audrey-yang)
+
 June 2020
 
 ## Description
