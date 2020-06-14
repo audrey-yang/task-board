@@ -3,6 +3,7 @@
     <head>
         <title>Task Board</title>
         <link href="style.css" rel="stylesheet">
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script type="module" defer>
             import interact from 'https://cdn.interactjs.io/v1.9.19/interactjs/index.js'
 
@@ -78,6 +79,8 @@
                         <label for="purple" style="color: lavender;">Purple</label>
                     </div>
                 </div>
+                <h3>Enter your email address below for a reminder.</h3>
+                <input type="text">
                 <br><br>
                 <input type="submit" id="submit-task-btn">
             </form>
